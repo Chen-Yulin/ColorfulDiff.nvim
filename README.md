@@ -40,9 +40,10 @@ require("lazy").setup({
 ```lua
 local config = {
   colors = {
-    diff = "#667700",
-    origin = "#007766",
+    origin = "#445522", -- color for the original part
+    diff = "#225544", -- color for the incoming change
   },
+  refresh_cycle = 250, -- smaller value for higher refresh frequency, will only refresh when the buffer has changed
 }
 require("colorful_diff").setup(config)
 ```

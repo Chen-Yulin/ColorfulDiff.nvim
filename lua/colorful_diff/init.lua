@@ -10,6 +10,7 @@ function M.setup(user_config)
 
 	-- Initialize highlight groups
 	myTint.InitHighlightGroup(config.colors.diff, config.colors.origin)
+	buffer_change.refresh_cycle = config.refresh_cycle
 
 	-- Set up autocmd to call our function on buffer change and when a file is opened
 	vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI", "BufRead" }, {
