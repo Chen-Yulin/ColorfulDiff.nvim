@@ -39,11 +39,10 @@ require("lazy").setup({
 ### Configuration
 ```lua
 local config = {
-	colors = {
-		diff = "#667700",
-		origin = "#007766",
-	},
+  colors = {
+    diff = "#667700",
+    origin = "#007766",
+  },
 }
 require("colorful_diff").setup(config)
-
 ```
