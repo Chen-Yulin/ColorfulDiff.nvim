@@ -39,7 +39,7 @@ function M.on_buffer_change()
 			end
 		end
 		local end_time = os.clock()
-		print("Time taken: ", end_time - start_time)
+		-- print("Time taken: ", end_time - start_time)
 	end
 end
 
