@@ -53,8 +53,6 @@ end
 -- Placeholder function for diff patch detection
 -- This should be replaced with actual diff patch detection logic
 function M.detect_diff_patch(lines)
-	local origin_s, origin_e, diff_s, diff_e
-
 	local diffblocks = {}
 	local inblock = false
 	for i, line in ipairs(lines) do
