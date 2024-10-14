@@ -23,8 +23,7 @@
 
 **ColorfulDiff.nvim** is a extremely light plugin that renders highlights for git diff.
 
-![image](https://github.com/user-attachments/assets/72ae1275-9604-470b-bc9b-41bdf0271c68)
-
+![image](https://github.com/user-attachments/assets/33fd5073-62e9-4b88-bbd9-698fe1b5766c)
 
 ## 🚀 Getting Started
 
