@@ -30,7 +30,7 @@ M.clearTint = function(buf, startLine, endLine)
 	end
 
 	-- Clear the highlights for the specified range
-	-- Subtract 1 from startLine and endLine to convert to 0-indexed
+	vim.api.nvim_buf_clear_namespace(buf, M.ns_id, startLine, endLine)
 end
 
 return M

@@ -12,11 +12,9 @@ end
 
 -- Function to be called when buffer contents change
 function M.on_buffer_change()
-	local start_time = os.clock()
 	local bufnr = vim.api.nvim_get_current_buf()
 	local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
 
-	-- TODO: Implement diff patch detection logic here
 	local diffblocks = M.detect_diff_patch(lines)
 
 	if diffblocks then
@@ -24,22 +22,16 @@ function M.on_buffer_change()
 		set_window_highlight_namespace(bufnr)
 
 		for i, block in ipairs(diffblocks) do
-			if i == 1 then
-				myTint.clearTint(bufnr, 1, block.diff_start - 1)
-			end
-
+			myTint.clearTint(bufnr, 1, block.diff_start - 1)
 			myTint.tintDiff(bufnr, block.diff_start, block.diff_end, true)
 			myTint.clearTint(bufnr, block.diff_end + 1, block.origin_start - 1)
 			myTint.tintDiff(bufnr, block.origin_start, block.origin_end, false)
-
-			if i < #diffblocks then
-				myTint.clearTint(bufnr, block.origin_end + 1, diffblocks[i + 1].diff_start - 1)
-			else
+			if i == 1 then
 				myTint.clearTint(bufnr, block.origin_end + 1, -1)
+			elseif i > 1 then
+				myTint.clearTint(bufnr, block.origin_end + 1, diffblocks[i - 1].diff_start - 1)
 			end
 		end
-		local end_time = os.clock()
-		-- print("Time taken: ", end_time - start_time)
 	end
 end
 
